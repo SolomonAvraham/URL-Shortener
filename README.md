@@ -1,76 +1,80 @@
-# URL Shortener - TypeScript & Express
+# URL Shortener - TypeScript, Express & MongoDB
 
-A simple URL shortening service built with TypeScript and Express.js. This project allows users to shorten long URLs and redirect them using a generated short code.
+A simple URL shortening service built with TypeScript, Express.js, and MongoDB, deployed to **Vercel**. This project allows users to shorten long URLs and redirect them using a generated short code.
 
 ## How to Use the API
 
 ### Shorten URL
 
-**Endpoint:**
-**POST** `/api/urls/shorten`
+**POST** `/create`
+
+**API Address:**
+`https://url-shortener-ts.vercel.app/create`
 
 **Request Body:**
-
-````json
 {
-    "originalUrl": "https://www.example.com"
+    "originalUrl": "https://www.example1234.com"
 }
 
+**Response:**
+{
+    "shortUrl": "2uw.in/abc123"
+}
+
+### Redirect to Original URL
+
+**GET** `/:shortUrl`
+
+Navigate to the shortened URL (e.g., `url-shortener-ts.vercel.app/abc123`), and it will redirect you to the original URL.
 
 ## Features
 
-- Shorten long URLs to make them easy to share
-- Redirect to the original URL when accessing the short URL
-- Simple and easy-to-use RESTful API
+- Shorten long URLs for easier sharing
+- Redirect to original URLs via short links
+- Simple and RESTful API
+- **Deployed on Vercel**: [https://url-shortener-ts.vercel.app/create](https://url-shortener-ts.vercel.app/create)
 
 ## Technologies Used
 
-- **TypeScript** - For strong typing and clean code
-- **Express.js** - For handling HTTP requests and routes
-- **dotenv** - For managing environment variables
-
+- **TypeScript**
+- **Express.js**
+- **MongoDB**
+ 
 ## Getting Started
 
 ### Prerequisites
 
-Make sure you have Node.js and npm installed on your machine.
+Ensure Node.js and npm are installed.
 
 ### Installation
 
 1. Clone the repository:
-    ```bash
     git clone https://github.com/yourusername/url-shortener-ts.git
-    ```
+
 2. Navigate to the project directory:
-    ```bash
     cd url-shortener-ts
-    ```
+
 3. Install dependencies:
-    ```bash
     npm install
-    ```
-4. Create a `.env` file and configure the following environment variables:
-    ```
+
+4. Create a `.env` file and set up environment variables:
+    DEV_MONGO_URI=your_dev_mongo_url
+    PROD_MONGO_URI=your_prod_mongo_url
     PORT=3000
-    DATABASE_URL=your_database_url
-    ```
+    LOCAL_SERVER_URL=http://localhost:3000
+    SERVER_URL=https://your-server-url.com
+    DOMAIN=2uw.in
 
 ### Running the Project
 
 1. Compile TypeScript files:
-    ```bash
     npm run build
-    ```
+
 2. Start the server:
-    ```bash
     npm start
-    ```
-3. The server will run on `http://localhost:3000`.
 
-### Available Scripts
+3. Access the server at `http://localhost:3000` or your configured `SERVER_URL`.
 
-- `npm run build` - Compiles TypeScript files to JavaScript
-- `npm run dev` - Runs the server in development mode with live reloading
-- `npm start` - Starts the server in production mode
+## License
 
-````
+This project is licensed under the MIT License.
