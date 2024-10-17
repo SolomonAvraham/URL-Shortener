@@ -7,23 +7,26 @@ A simple URL shortening service built with TypeScript, Express.js, and MongoDB, 
 ### Shorten URL
 
 **POST** `/create`
+**GET** `/:shortUrl`
 
 **API Address:**
-`https://url-shortener-ts.vercel.app/create`
+`https://url-shortener-ts.vercel.app/`
 
 **Request Body:**
+
 {
     "originalUrl": "https://www.example1234.com"
 }
 
 **Response:**
+
 {
-    "shortUrl": "2uw.in/abc123"
+    "shortUrl": "2uw.in/abc12"
 }
 
 ### Redirect to Original URL
 
-**GET** `/:shortUrl`
+**GET** `https://url-shortener-ts.vercel.app/:shortUrl`
 
 Navigate to the shortened URL (e.g., `url-shortener-ts.vercel.app/abc123`), and it will redirect you to the original URL.
 
@@ -32,7 +35,7 @@ Navigate to the shortened URL (e.g., `url-shortener-ts.vercel.app/abc123`), and 
 - Shorten long URLs for easier sharing
 - Redirect to original URLs via short links
 - Simple and RESTful API
-- **Deployed on Vercel**: [https://url-shortener-ts.vercel.app/create](https://url-shortener-ts.vercel.app/create)
+- **Deployed on Vercel**: [https://url-shortener-ts.vercel.app](https://url-shortener-ts.vercel.app)
 
 ## Technologies Used
 
@@ -49,7 +52,7 @@ Ensure Node.js and npm are installed.
 ### Installation
 
 1. Clone the repository:
-    git clone https://github.com/yourusername/url-shortener-ts.git
+    git clone https://github.com/SolomonAvraham/url-shortener-ts.git
 
 2. Navigate to the project directory:
     cd url-shortener-ts
@@ -59,10 +62,15 @@ Ensure Node.js and npm are installed.
 
 4. Create a `.env` file and set up environment variables:
     DEV_MONGO_URI=your_dev_mongo_url
+   
     PROD_MONGO_URI=your_prod_mongo_url
+   
     PORT=3000
+   
     LOCAL_SERVER_URL=http://localhost:3000
+   
     SERVER_URL=https://your-server-url.com
+   
     DOMAIN=2uw.in
 
 ### Running the Project
